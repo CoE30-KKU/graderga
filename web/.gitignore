@@ -1,11 +1,6 @@
 
 file/
-static/functions/config.php
 static/functions/conf.php
 static/functions/mail/conf.php
-conf.mail.php
-conf.oauth.php
-conf.php
 oauth/conf.php
 .env
-venv*
