@@ -110,14 +110,14 @@
         <h3 class="font-weight-bold text-coekku"><?php echo $inc_cont_title; ?></h3>
         <h1 class="display-1 font-weight-bold" id="countdown">Loading..</h1>
         <p><?php echo $inc_cont_start . ' GMT+7 to ' . $inc_cont_end . ' GMT+7'; ?></p>
-        <a href="../scoreboard/" class="btn btn-coekku">ดูประวัติการแข่งขัน</a>
+        <!-- <a href="../scoreboard/" class="btn btn-coekku">ดูประวัติการแข่งขัน</a> -->
     </div>
     <?php } else { ?>
     <div class="center" align="center">
         <h1 class="font-weight-bold text-coekku">Contest</h1>
         <h4>ไม่มีการแข่งขันที่กำลังจะเกิดขึ้น</h4>
         <p>อย่าลืมฝึกทำโจทย์ด้วยแหละ !</p>
-        <a href="../scoreboard/" class="btn btn-coekku">ดูประวัติการแข่งขัน</a>
+        <!-- <a href="../scoreboard/" class="btn btn-coekku">ดูประวัติการแข่งขัน</a> -->
     </div>
     <?php } ?>
 </div>

@@ -6,8 +6,8 @@
         $ciphering = "AES-128-CTR";
         $iv_length = openssl_cipher_iv_length($ciphering);
         $options = 0;
-        $decryption_iv = 'Created by p0ndja';
-        $decryption_key = "66aa08fb703595986de262136e2574521d2e38d7";
+        $decryption_iv = 'a08fb703595986de';
+        $decryption_key = "66a262136e257452";
         $decryption = openssl_decrypt($encrypted, $ciphering, $decryption_key, $options, $decryption_iv);
         return $decryption;
     }
@@ -16,16 +16,17 @@
         $ciphering = "AES-128-CTR";
         $iv_length = openssl_cipher_iv_length($ciphering);
         $options = 0;
-        $encryption_iv = 'Created by p0ndja';
-        $encryption_key = "66aa08fb703595986de262136e2574521d2e38d7";
+        $encryption_iv = 'a08fb703595986de';
+        $encryption_key = "66a262136e257452";
         $encryption = openssl_encrypt($simple_string, $ciphering, $encryption_key, $options, $encryption_iv);
         return $encryption;
     }
 
     function latestIncrement($db, $dbdatabase = null) {
         global $conn;
+        global $db_table;
         $conn->prepare("SET information_schema_stats_expiry = 0;")->execute();
-        if ($dbdatabase == null) $dbdatabase = "grader.ga";
+        if ($dbdatabase == null) $dbdatabase = $db_table;
         return mysqli_fetch_array(mysqli_query($conn,"SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '$dbdatabase' AND TABLE_NAME = '$db'"), MYSQLI_ASSOC)["AUTO_INCREMENT"];
     }
     

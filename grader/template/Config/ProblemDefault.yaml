@@ -1,6 +1,6 @@
 compareCompile:
   - <<!Cpp:BIN_FILE>>
-  - -O2 -std=c++17 "/root/Garedami/StandardJudge/StdCMP.cpp" -o "<<Cur_Problem>>/StdCheckBin"
+  - -O2 -std=c++17 "/app/Garedami/StandardJudge/StdCMP.cpp" -o "<<Cur_Problem>>/StdCheckBin"
 compareRun:
   - '"<<Cur_Problem>>/StdCheckBin"'
   - ""

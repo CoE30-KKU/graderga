@@ -7,7 +7,6 @@
         <span class="input-group-text grey lighten-2">Q.1.1</span>
         <span class="input-group-text grey lighten-4">V<sub>x</sub></span>
       </div>
-
       <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
       <div class="input-group-append">
         <span class="input-group-text grey lighten-4">Volt</span>

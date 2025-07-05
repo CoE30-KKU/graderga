@@ -1,7 +1,8 @@
 import mysql.connector
 import time
 import urllib3
-from os import path, environ
+from os import path, getenv
+from dotenv import load_dotenv
 from Garedami.Src import Judge
 import requests
 import json
@@ -11,12 +12,13 @@ mycursor = None
 
 def DBconnect():
     global dbconnector, mycursor
-    
+    load_dotenv()
+
     # Get database configuration from environment variables with fallback values
-    db_host = environ.get('DB_HOST')
-    db_user = environ.get('DB_USERNAME')
-    db_password = environ.get('DB_PASSWORD')
-    db_name = environ.get('DB_SCHEMA')
+    db_host = getenv('DB_HOST')
+    db_user = getenv('DB_USERNAME')
+    db_password = getenv('DB_PASSWORD')
+    db_name = getenv('DB_SCHEMA')
     
     # For debugging
     print(f"Connecting to database: {db_host}, {db_user}, {db_name}")
@@ -34,16 +36,15 @@ def DBconnect():
                 database=db_name
             )
             mycursor = dbconnector.cursor(buffered=True)
-            if (attempt != 0):
-                print('[/] Connection Success!')
+            print('[/] Connection Success!')
         except Exception as e:
             print("[!] ERROR on establishing database:\n", e)
             attempt+=1
-            print(f"Retrying in {60*attempt} seconds...")
-            time.sleep(60*attempt)
-            if (attempt == 5):
-                print("Maximum Attempt Reached")
-                exit(0)
+            print(f"Retrying in {10} seconds...")
+            time.sleep(10)
+            # if (attempt == 5):
+            #     print("Maximum Attempt Reached")
+            #     exit(0)
 
 def getWaitSubmission():
     while True:
@@ -80,12 +81,13 @@ if __name__ == '__main__':
             userID = myresult[1] #user is the 2nd.
             probID = myresult[2] #problem is the 3rd.
             lang = myresult[3] #lang is the 4th.
-            userCodeLocation = myresult[4] #script location is the 5th.
+            userCodeLocation = myresult[4].replace("../","/") #script location is the 5th.
 
             print(f"----------<OwO>----------\nJudging: submission={subID}, problem={probID}, user={userID}")
 
-            probTestcaseLocation = path.join("file","judge","prob",str(probID))
-            #print(probTestcaseLocation)
+            probTestcaseLocation = path.join("/","file","judge","prob",str(probID))
+            print(probTestcaseLocation, userCodeLocation)
+            print(probTestcaseLocation)
             #All testcases will be here
 
             srcCode = ""

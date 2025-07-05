@@ -9,7 +9,9 @@
     require_once 'conf.php';
  
     global $conn;
+    global $db_table;
     $conn = new mysqli($db["hostname"], $db["username"], $db["password"], $db["table"]);
+    $db_table = $db["table"];
     mysqli_set_charset($conn, 'utf8mb4');
 
     if(!$conn)
