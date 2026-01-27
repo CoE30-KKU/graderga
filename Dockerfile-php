@@ -16,11 +16,17 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache modules for rewrite and headers
 RUN a2enmod rewrite headers
 
+# Create log directory for PHP error logs
+RUN mkdir -p /var/log/php && chown www-data:www-data /var/log/php
+
 # Set working directory
 WORKDIR /var/www/html
 
 # Copy application files
 COPY ./web /var/www/html/
+
+# Copy custom PHP configuration
+COPY ./php.ini /usr/local/etc/php/php.ini
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \

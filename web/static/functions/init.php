@@ -206,7 +206,7 @@
                 $this->email = htmlspecialchars($data['email']);
                 $this->user = htmlspecialchars($data['username']);
                 $this->profile = $data['profile'];
-                $this->properties = json_decode($data['properties'], true);
+                $this->properties = $data['properties'] != null ? json_decode($data['properties'], true) : array();
             } else {
                 $this->id = -1;
             }

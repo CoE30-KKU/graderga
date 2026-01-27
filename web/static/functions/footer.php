@@ -15,9 +15,9 @@
     </div>
 </footer>
 <script>hljs.initHighlightingOnLoad();</script>
-<?php if (!isset($_SESSION['loadAnnouncement'])) { $_SESSION['loadAnnouncement'] = true; ?>
+<!-- <?php if (!isset($_SESSION['loadAnnouncement'])) { $_SESSION['loadAnnouncement'] = true; ?>
     <script>$('#announcementPopup').modal('show');</script>
-<?php } ?>
+<?php } ?> -->
 <script>
     $('input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], input[type=date], input[type=time], textarea').each(function (element, i) {
         if ((element.value !== undefined && element.value.length > 0) || $(this).attr('placeholder') !== undefined) {
